@@ -1,0 +1,50 @@
+- ¿Hace falta incluir un Constructor para inicializar las propiedades si se pueden inicializar directo desde su declaración (y si es que no se piensa incluir más Constructores con parámetros)?
+
+La consola sí puede imprimir los valores iniciales de los Datos Miembro cuando se usan Métodos declarados previo al Main que los incluyan
+"non-static variable <nombre> cannot be referenced from a static context"
+La consola sí puede imprimir los valores iniciales de los Datos Miembro desde Main, sin usar Métodos declarados previamente, si es que los Datos son declarados como "static".
+*NOTA: Todos los Datos Miembro son de tipo "public"
+
+- ¿Qué quiere decir que un dato sea "static"? 
+	- ¿Que sus valores no pueden ser modificados tras su declaración? 
+	- ¿Por qué se puede imprimir Datos Miembro sin que sean "static" a través de Métodos, pero no por Main?
+
+Datos Miembro: no "static", no inicializados.
+Inicialización a través de Constructor s/ parámetros.
+Despliegue a través de Métodos declarados previamente del Main.
+=> Despliegue no reconoce inicialización del Constructor
+   Despliega datos como si no tuviesen valor
+
+	2DO INTENTO:
+	=> Incluso con los mismos valores inicializados tanto en Constructor como en Datos Miembro, sigue sin reconocer la inicialización del Constructor.
+
+Datos Miembro: no "static", no inicializados.
+Inicialización a través de Constructor s/ parámetros.
+Despliegue directamente desde el Main.
+=> "non-static variable <nombre> cannot be referenced from a static context"
+*NOTA: Constructor tenía valores inicializados diferentes a los valores directamente con la declaración.
+       Será necesario repetir la prueba.
+
+	2DO INTENTO:
+	=> Ningún cambio.
+	   "non-static variable <nombre> cannot be referenced from a static context"
+
+Datos Miembro: no "static", no inicializados.
+Inicialización a través de objeto "prueba" c/ parámetros desde el Main.
+	Los valores de los datos, SIN definir su tipo (e.g. String, int)
+	Constructor no incluido en el programa.
+Despliegue a través de Métodos declarados previamente del Main.
+=> "illegal start of expression"
+	
+	2DO INTENTO:
+	=> "error: constructor Estudiante in class Estudiante cannot be applied to given types;
+	    required: no arguments
+	    found: String, int, int, int
+	    reason: actual and formal argument lists differ in length"
+		
+Datos Miembro: no "static", no inicializados.
+Inicialización a través de objeto "prueba" c/ parámetros desde el Main.
+	Los valores de los datos, CON definición de su tipo (e.g. String, int)
+	Constructor no incluido en el programa.
+Despliegue a través de Métodos declarados previamente del Main.
+=> 7 errores: "')' expected", "not a statement", "';' expected"
